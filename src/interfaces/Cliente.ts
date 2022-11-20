@@ -1,7 +1,7 @@
 import { Endereco } from "./endereco"
 
 
-export interface Client{
+export interface Cliente{
     email:string,
     nomeUsuario:string,
     nomeCompleto:string,
