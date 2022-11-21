@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, NativeSyntheticEvent,TextInputChangeEventData } from 'react-native';
-import { styles } from './styles'
 
 import { CommonInput } from '../../components/Inputs/CommonInput';
 import { SecureInput } from '../../components/Inputs/SecureInput';
 import { ConfirmButton } from '../../components/Buttons/ConfirmButton';
+
+import { styles } from './styles'
 
 
 export const Login = () => {

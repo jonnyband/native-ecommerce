@@ -1,5 +1,5 @@
 import React from "react"
-import { View, Text, TextInput, TouchableOpacity } from "react-native"
+import { Text, TouchableOpacity } from "react-native"
 
 import { btnProps } from '../../interfaces/Button'
 

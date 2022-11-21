@@ -2,10 +2,11 @@
 import React, {useState} from "react"
 import { View, Text, TextInput, TouchableOpacity } from "react-native"
 
+
+import { InputProps } from "../../interfaces/Input"
 import { Feather } from '@expo/vector-icons'; 
 
 import { styles } from "./style"
-import { InputProps } from "../../interfaces/Input"
 
 export const SecureInput = ({title, placeholder, ...rest} : InputProps) => {
 

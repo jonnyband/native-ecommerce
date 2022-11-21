@@ -1,9 +1,9 @@
 import React from "react"
 import { View, Text, TextInput } from "react-native"
 
+import { InputProps } from "../../interfaces/Input"
 
 import { styles } from "./style"
-import { InputProps } from "../../interfaces/Input"
 
 
 export const CommonInput = ({title, placeholder, ...rest} : InputProps) => {
