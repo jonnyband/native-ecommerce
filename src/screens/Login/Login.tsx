@@ -33,6 +33,7 @@ export const Login = () => {
 
               title='Email'
               placeholder='Digite seu email'
+              keyboardType="email-address"
           />
           <SecureInput
               value={password}
@@ -43,7 +44,9 @@ export const Login = () => {
               secureTextEntry={true}
           />
         </View>
-        <ConfirmButton/>
+        <ConfirmButton
+          title='Entrar'
+        />
         <View style={styles.boxCreateAcc}>
           <Text>Ainda não possui uma conta?
           </Text>

@@ -1,35 +1,35 @@
 import { StyleSheet, Platform } from "react-native";
 
 export const styles = StyleSheet.create({
-    
-    container:{
-        paddingTop: Platform.OS === "ios" ? 64 : 50, 
+    container: {
         flex: 1,
+        paddingTop: Platform.OS === 'ios' ? 64 : 50,
         paddingHorizontal: 24,
-        flexDirection:'column',
-        justifyContent:'center',
-        alignItems:'center',
+        alignItems: 'center',
     },
     title: {
         fontSize: 38,
         fontWeight: "200",
+        marginTop: 60,
+        marginBottom: 80,
+        maxWidth: '80%',
+        textAlign:"center"
     },
-    inputBox: {
-        marginTop: 180,
-        marginBottom: 40
+    boxForm: {
+       marginBottom: 40
     },
-    boxCreateAcc: {
+    boxLogin: {
         position: "relative",
-        top: 124,
+        top: 98,
         height: 30,
         flexDirection:"row",
         textAlignVertical:"center",
     },
-    createAcc: {
+    login: {
         height: 30,
         color: '#416196',
         fontWeight: '900',
         marginLeft: 4,
-        
     }
+
 })

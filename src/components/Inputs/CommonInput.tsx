@@ -17,7 +17,7 @@ export const CommonInput = ({title, placeholder, ...rest} : InputProps) => {
                 style={styles.textInput}
                 placeholder={placeholder}
 
-                keyboardType="email-address"
+                keyboardType="default"
                 autoCorrect={false}
                 autoCapitalize="none"
                 selectionColor={'#416196'}
