@@ -1,9 +1,8 @@
 import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-
 import { Home } from './src/screens/Home/Home';
-import { Login } from './src/screens/Login/Login';
+import { Login} from './src/screens/Login/Login';
 import { Registration } from './src/screens/Registration/Registration';
 import { Members } from './src/screens/Members/Members';
 
@@ -14,12 +13,11 @@ export default function App() {
    
   <NavigationContainer>
     <Drawer.Navigator>
-    <Drawer.Screen name="Home" component={Home} />
+    <Drawer.Screen name="Home" component={Home}/>
+    <Drawer.Screen name="Integrantes" component={Members}/>
     </Drawer.Navigator>
-  </NavigationContainer>   
-  // <Login/>
-  // <Registration/>
-  // <Members/>
+  </NavigationContainer>
+
 );
   
 }
