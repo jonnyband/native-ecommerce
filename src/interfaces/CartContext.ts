@@ -1,3 +1,4 @@
+import React from "react";
 import { ItemPedido } from "./ItemPedido";
 import { Produto } from "./Produto";
 
@@ -11,3 +12,7 @@ export interface CartContext{
     
     
 }
+
+export interface CartProviderProps {
+    children: React.ReactNode
+} 

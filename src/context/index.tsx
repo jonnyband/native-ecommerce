@@ -1,11 +1,11 @@
 import React, { createContext, useState, useEffect  } from "react";
-import { CartContext } from "../interfaces/CartContext";
+import { CartContext, CartProviderProps } from "../interfaces/CartContext";
 import { Produto } from "../interfaces/Produto";
 import { ItemPedido } from "../interfaces/ItemPedido";
 
 
 export const Context = React.createContext<CartContext | null >(null)
-export const CartContent = ({ children }) => {
+export const CartContent = ({ children } : CartProviderProps) => {
     const [cart, setCart] = useState<ItemPedido[]>([])
 
 
