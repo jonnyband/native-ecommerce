@@ -8,7 +8,7 @@ import { ConfirmButton } from '../../components/Buttons/ConfirmButton';
 import { styles } from './styles'
 
 
-export const Login = () => {
+export const Login = props => {
 
   //Variáveis para obtenção dos dados digitados pelo usuário
   const [email, setEmail] = useState<string>("");
@@ -47,6 +47,7 @@ export const Login = () => {
         </View>
         <ConfirmButton
           title='Entrar'
+          onPress={()=>props.navigation.navigate('Home')}
         />
         <View style={styles.boxCreateAcc}>
           <Text>Ainda não possui uma conta?
