@@ -6,13 +6,17 @@ import {getProdutos} from '../../services/ProdutoService'
 
 
 
-useEffect(() => {
-  
-}, []);
+
 
 export const Home = props => {
 
-
+  useEffect(() => {
+    let a = getProdutos().then((res)=>{
+      res.data.map((r)=>console.log(r.nome))
+     }).catch((err) => {
+       console.log(err)
+     })
+   }, []);
   
     return (
       
