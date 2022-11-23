@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import { Produto } from "../interfaces/Produto";
+import { Produto } from "../interfaces/Models/Produto";
 import { api } from "./api";
 
 const url:string = 'produtos'
