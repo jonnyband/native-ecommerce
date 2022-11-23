@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect  } from "react";
 import { CartContext, CartProviderProps } from "../interfaces/CartContext";
-import { Produto } from "../interfaces/Produto";
-import { ItemPedido } from "../interfaces/ItemPedido";
+import { Produto } from "../interfaces/Models/Produto";
+import { ItemPedido } from "../interfaces/Models/ItemPedido";
 
 
 export const Context = React.createContext<CartContext | null >(null)

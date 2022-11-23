@@ -1,6 +1,6 @@
 import React from "react";
-import { ItemPedido } from "./ItemPedido";
-import { Produto } from "./Produto";
+import { ItemPedido } from "./Models/ItemPedido";
+import { Produto } from "./Models/Produto";
 
 export interface CartContext{
 
