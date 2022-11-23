@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Text, View, TouchableOpacity, NativeSyntheticEvent,TextInputChangeEventData } from 'react-native';
-
+import { Text, View, TouchableOpacity, NativeSyntheticEvent,TextInputChangeEventData, Button } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
 import { CommonInput } from '../../components/Inputs/CommonInput';
 import { SecureInput } from '../../components/Inputs/SecureInput';
 import { ConfirmButton } from '../../components/Buttons/ConfirmButton';
@@ -45,15 +45,17 @@ export const Login = props => {
               secureTextEntry={true}
           />
         </View>
-        <ConfirmButton
+        <Button
           title='Entrar'
-          onPress={()=>props.navigation.navigate('Home')}
+          onPress={(e)=>props.navigation.navigate('Home')}
         />
         <View style={styles.boxCreateAcc}>
           <Text>Ainda não possui uma conta?
           </Text>
             <TouchableOpacity>
-              <Text style={styles.createAcc}>Criar conta</Text>
+              <Text style={styles.createAcc}
+              onPress={(e)=>props.navigation.navigate('Registro')}
+              >Criar conta</Text>
             </TouchableOpacity>
         </View>
 
