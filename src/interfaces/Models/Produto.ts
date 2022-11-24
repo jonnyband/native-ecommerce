@@ -1,3 +1,4 @@
+import { ImageSourcePropType } from "react-native";
 import { Categoria } from "./Categoria";
 
 export interface Produto{
@@ -7,5 +8,6 @@ descricao:string,
 quantidadeEstoque:number,
 dataCadastro:Date,
 valorUnitario:number,
-categoria:Categoria
+categoria:Categoria,
+imagem:string
 }
