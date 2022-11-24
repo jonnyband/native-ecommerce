@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View, Image, Linking } from 'react-native';
+import Logo from '../../../assets/logo.png';
 
 import { AntDesign } from '@expo/vector-icons'; 
 import { styles } from './styles'
@@ -51,18 +52,19 @@ export const Members = () => {
                             <Text style={styles.nameText}>{member.name}</Text>
                             <Text style={styles.descriptionText}>{member.description}</Text>
                         </View>
+                        {/* <Image style={styles.image} source={Logo}/> */}
                     </View>
                     <View>
                         <View style={styles.boxSocialIcons}>
                             <AntDesign
                                 name='linkedin-square'
-                                color={'#374966'}
+                                color={'#097e7e'}
                                 size={32}
                                 onPress={() => {Linking.openURL(member.linkedin)}}
                             />        
                             <AntDesign
                                 name='github'
-                                color={'#374966'}
+                                color={'#097e7e'}
                                 size={32}
                                 onPress={() => {Linking.openURL(member.github)}}
                             />                        

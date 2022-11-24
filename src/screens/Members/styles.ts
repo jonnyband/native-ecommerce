@@ -42,5 +42,10 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: "space-between",
         width: 84
+    },
+    image: {
+        width: 80,
+        height: 80,
+        marginBottom: 50
     }
 })
