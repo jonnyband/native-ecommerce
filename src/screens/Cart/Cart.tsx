@@ -16,7 +16,7 @@ import { Pedido } from '../../interfaces/Models/Pedido';
 import { ItemPedido } from '../../interfaces/Models/ItemPedido';
 
 export const Carrinho = () => {
-    const { cart, removeProduct, removeAllProducts, addAmount } = useContext(Context)
+    const { cart, removeProduct, removeAllProducts, addAmount, minusAmount } = useContext(Context)
 
 
     useEffect(() => {
@@ -42,6 +42,15 @@ export const Carrinho = () => {
     function setAmount(c:ItemPedido) {
 
         addAmount(c)
+        console.log(c.quantidade)
+        setOrder({ ...order, listaItemPedido: cart }
+        )
+
+    }
+
+    function setMinusAmount(c:ItemPedido) {
+
+        minusAmount(c)
         console.log(c.quantidade)
         setOrder({ ...order, listaItemPedido: cart }
         )
@@ -100,7 +109,7 @@ export const Carrinho = () => {
                             <Text
                                 style={styles.productName}
                             >{item.produto.nome}</Text>
-                            <AntDesign name="minuscircleo" size={24} color="black" />
+                            <AntDesign onPress={()=>{setMinusAmount(item)}} name="minuscircleo" size={24} color="black" />
                             <Text style={styles.productQuantity}>
                                 Quantidade: {item.quantidade}
                             </Text>

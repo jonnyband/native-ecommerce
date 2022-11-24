@@ -38,6 +38,19 @@ export const CartContent = ({ children } : CartProviderProps) => {
      
     }
 
+    
+
+    function minusAmount(c:ItemPedido) {
+          
+
+        setCart(cart.map((i)=> {if(i.produto.id === c.produto.id){
+           i.quantidade--;
+       }
+       return i;}
+       ))
+    
+   }
+
     function removeProduct(id:number) {
         
         setCart([...cart.filter(c=>c.produto.id!==id)])
@@ -51,7 +64,7 @@ export const CartContent = ({ children } : CartProviderProps) => {
 
     return (
         <Context.Provider
-            value={{cart, addProduct,addAmount,removeProduct,removeAllProducts}}
+            value={{cart, addProduct,addAmount, minusAmount,removeProduct,removeAllProducts}}
         >
             {children}
         </Context.Provider>
