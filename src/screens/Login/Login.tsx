@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity, NativeSyntheticEvent,TextInputChangeEvent
 import {NavigationContainer} from '@react-navigation/native';
 import { CommonInput } from '../../components/Inputs/CommonInput';
 import { SecureInput } from '../../components/Inputs/SecureInput';
-import { ConfirmButton } from '../../components/Buttons/ConfirmButton';
+import { ConfirmButton } from '../../components/ConfirmButton/ConfirmButton';
 import { getClienteId, getCliente } from '../../services/ClienteService';
 
 import { styles } from './styles'

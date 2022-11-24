@@ -3,7 +3,7 @@ import { View, Text, NativeSyntheticEvent, TextInputChangeEventData, TouchableOp
 
 import { CommonInput } from '../../components/Inputs/CommonInput';
 import { SecureInput } from '../../components/Inputs/SecureInput';
-import { ConfirmButton } from '../../components/Buttons/ConfirmButton';
+import { ConfirmButton } from '../../components/ConfirmButton/ConfirmButton';
 
 import { styles } from "./styles"
 
