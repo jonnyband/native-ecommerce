@@ -3,7 +3,6 @@ import { Text, View, TextInput, Button, Image, TouchableOpacity } from 'react-na
 import {styles} from './styles'
 
 import {getProdutos} from '../../services/ProdutoService'
-import { getClienteId, getCliente } from '../../services/ClienteService';
 import { Produto } from '../../interfaces/Models/Produto';
 import { FlatList } from 'react-native-gesture-handler';
 import { CartButton } from '../../components/CartButton/CartButton';
@@ -29,10 +28,9 @@ export const Home = props => {
     return (
       <View>
         <Container
-         
           animationStyle='zoomInOut'
-          positionValue= '60'
-          
+          position='bottom'
+          positionValue='60'
           duration= {1300}
           width= {168}
           height= {50}
