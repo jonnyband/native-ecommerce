@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Text, View, TextInput, Button, Image, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, Button, Image, TouchableOpacity, AsyncStorage } from 'react-native';
 import { styles } from './styles'
 import { putProdutos } from '../../services/ProdutoService'
 import { Context } from '../../context';
@@ -19,18 +19,33 @@ import Container, { Toast } from 'toastify-react-native';
 
 export const Carrinho = () => {
     const { cart, removeProduct, removeAllProducts, addAmount, minusAmount } = useContext(Context)
+    const [userID, setUserID] = useState<string>()
 
+    const getData = async () => {
+        try {
+            setUserID(await AsyncStorage.getItem('@id'))
+            console.log(userID)
+            
+        } catch (e) {
+            // error reading value
+        }}
+
+    useEffect(()=>{
+        
+        getData
+        console.log(userID)
+    }, [])
 
     useEffect(() => {
         setFullPrice(orderTotal())
     }, [cart])
 
-
+    
 
     const [order, setOrder] = useState<Pedido>(
         {
             status: 'PROCESSANDO',
-            cliente: { id: 23 },
+            cliente: { id: 27 },
             listaItemPedido:
                 cart
         }
@@ -80,6 +95,7 @@ export const Carrinho = () => {
 
 
     function buyOrder(order: Pedido) {
+
 
         postPedido(order).then((res) => {
             console.log(res.data)

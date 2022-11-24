@@ -29,18 +29,18 @@ export const Login = props => {
   }
   
 
-    
-    const storeData = async () => {
-      try {
-          await AsyncStorage.setItem('@id', id)
-      } catch (e) {
-  
-      }
-  }
+  const storeData = async (value: string) => {
+    try {
+        await AsyncStorage.setItem('@id', value)
+        console.log(await AsyncStorage.getItem('@id')+'felup')
+    } catch (e) {
+        // saving error
+    }
+}
 
   const getData = async () => {
     try {
-       return await AsyncStorage.getItem('@id')
+       return 
         
     } catch (e) {
         // error reading value
@@ -52,8 +52,8 @@ export const Login = props => {
     let cpf:string
     
     getClienteId(id).then((res) => {cpf = res.data.cpf;
-      storeData
-      console.log(getData)
+
+      storeData(id)
    })
     .catch((err) => {
       console.log(err)
