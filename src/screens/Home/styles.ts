@@ -45,7 +45,6 @@ export const styles = StyleSheet.create({
     },
     productPrice:{
         fontWeight: '800',
-        
     },
     cartBtn:{
         position:'absolute',

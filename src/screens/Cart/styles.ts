@@ -68,7 +68,7 @@ export const styles = StyleSheet.create({
     },
     finishBtn: {
         position:'absolute',
-        backgroundColor:'#1f1f1f',
+        backgroundColor:'#141414',
         bottom: 0,
         width: '100%',
         height: 76
