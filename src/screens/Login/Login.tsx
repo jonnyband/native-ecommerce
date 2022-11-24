@@ -4,50 +4,74 @@ import { Text, View, TouchableOpacity, NativeSyntheticEvent,TextInputChangeEvent
 import { CommonInput } from '../../components/Inputs/CommonInput';
 import { SecureInput } from '../../components/Inputs/SecureInput';
 import { ConfirmButton } from '../../components/Buttons/ConfirmButton';
+import { getClienteId, getCliente } from '../../services/ClienteService';
 
 import { styles } from './styles'
 
-
 export const Login = () => {
 
+  
   //Variáveis para obtenção dos dados digitados pelo usuário
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-
+  const [id, setId] = useState<string>();
+  const [typedCpf, setTypedCpf] = useState<string>();
+  
   //As funções abaixo servem para alterar em tempo real a senha e o email digitado
-  const onChangeEmail = (e: NativeSyntheticEvent<TextInputChangeEventData>): void => {
+  const onChangeId = (e: NativeSyntheticEvent<TextInputChangeEventData>): void => {
     const value = e.nativeEvent.text;
-    setEmail(value);
+    setId(value);
   }
+  
+  const onChangeTypedCpf = (e: NativeSyntheticEvent<TextInputChangeEventData>): void => {
+    const value = e.nativeEvent.text;
+    setTypedCpf(value);
+  }
+  
+  function Signin () {
 
-  const onChangePassword = (e: NativeSyntheticEvent<TextInputChangeEventData>): void => {
-    const value = e.nativeEvent.text;
-    setPassword(value);
+    let cpf:string
+    
+    getClienteId(id).then((res) => cpf = res.data.cpf).catch((err) => {
+      console.log(err)
+      }).finally(() => {
+        if(cpf == typedCpf){
+          return (
+            console.log('Logou')
+          )
+        } else{
+          alert('ID ou CPF inválido')
+        } 
+      }  
+    )
   }
+  
     return (
       <View style={styles.container} >
         <Text style={styles.title}>Login</Text>
         <View style={styles.inputBox}>
           <CommonInput
-              value={email}
-              onChange={onChangeEmail}
+              value={id}
+              onChange={onChangeId}
 
-              title='Email'
-              placeholder='Digite seu email'
+              title='ID'
+              placeholder='Digite seu ID'
               keyboardType="email-address"
           />
           <SecureInput
-              value={password}
-              onChange={onChangePassword}
+              value={typedCpf}
+              onChange={onChangeTypedCpf}
 
-              title='Senha'
-              placeholder='Digite sua senha'
+              title='CPF'
+              placeholder='Digite seu CPF'
               secureTextEntry={true}
           />
         </View>
-        <ConfirmButton
-          title='Entrar'
-        />
+        <TouchableOpacity
+          onPress={() => Signin()}
+        >
+          <ConfirmButton
+            title='Entrar'
+          />
+        </TouchableOpacity>
         <View style={styles.boxCreateAcc}>
           <Text>Ainda não possui uma conta?
           </Text>
