@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, NativeSyntheticEvent,TextInputChangeEventData, Button } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
+
 import { CommonInput } from '../../components/Inputs/CommonInput';
 import { SecureInput } from '../../components/Inputs/SecureInput';
 import { ConfirmButton } from '../../components/ConfirmButton/ConfirmButton';
