@@ -20,14 +20,14 @@ export const styles = StyleSheet.create({
     },
     boxLogin: {
         position: "relative",
-        top: 98,
+        top: 80,
         height: 30,
         flexDirection:"row",
         textAlignVertical:"center",
     },
     login: {
         height: 30,
-        color: '#416196',
+        color: '#097e7e',
         fontWeight: '900',
         marginLeft: 4,
     }

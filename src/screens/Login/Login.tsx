@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Text, View, TouchableOpacity, NativeSyntheticEvent,TextInputChangeEventData, Button } from 'react-native';
+import { Text, View, TouchableOpacity, NativeSyntheticEvent,TextInputChangeEventData, Button, Image } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import { CommonInput } from '../../components/Inputs/CommonInput';
 import { SecureInput } from '../../components/Inputs/SecureInput';
 import { ConfirmButton } from '../../components/ConfirmButton/ConfirmButton';
 import { getClienteId, getCliente } from '../../services/ClienteService';
+import Logo from '../../../assets/logo.png';
 
 import { styles } from './styles'
 
@@ -46,6 +47,7 @@ export const Login = props => {
   
     return (
       <View style={styles.container} >
+        <Image style={styles.image} source={Logo}/>
         <Text style={styles.title}>Login</Text>
         <View style={styles.inputBox}>
           <CommonInput
