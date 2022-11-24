@@ -5,6 +5,7 @@ import { ItemPedido } from "../interfaces/Models/ItemPedido";
 
 
 export const Context = React.createContext<CartContext | null >(null)
+
 export const CartContent = ({ children } : CartProviderProps) => {
     const [cart, setCart] = useState<ItemPedido[]>([])
 
@@ -26,11 +27,11 @@ export const CartContent = ({ children } : CartProviderProps) => {
     }
 
     
-    function addAmount(e:number, c:ItemPedido) {
+    function addAmount(c:ItemPedido) {
           
 
          setCart(cart.map((i)=> {if(i.produto.id === c.produto.id){
-            i.quantidade = e;
+            i.quantidade++;
         }
         return i;}
         ))

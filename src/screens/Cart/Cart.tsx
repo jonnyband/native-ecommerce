@@ -1,16 +1,19 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Text, View, TextInput, Button, Image, TouchableOpacity } from 'react-native';
-import {styles} from '../Home/styles'
-import {putProdutos} from '../../services/ProdutoService'
+import { styles } from '../Home/styles'
+import { putProdutos } from '../../services/ProdutoService'
 import { Context } from '../../context';
+
+import { AntDesign } from '@expo/vector-icons'; 
+
 
 import { getClienteId, getCliente } from '../../services/ClienteService';
 import { Produto } from '../../interfaces/Models/Produto';
 import { FlatList } from 'react-native-gesture-handler';
-import { SelectList } from 'react-native-dropdown-select-list'
 import { CartButton } from '../../components/CartButton/CartButton';
 import { postPedido } from '../../services/PedidoService';
 import { Pedido } from '../../interfaces/Models/Pedido';
+import { ItemPedido } from '../../interfaces/Models/ItemPedido';
 
 export const Carrinho = () => {
     const { cart, removeProduct, removeAllProducts, addAmount } = useContext(Context)
@@ -36,12 +39,13 @@ export const Carrinho = () => {
     )
 
 
-    function setAmount(e, c) {
+    function setAmount(c:ItemPedido) {
 
-        addAmount(e, c)
+        addAmount(c)
+        console.log(c.quantidade)
         setOrder({ ...order, listaItemPedido: cart }
         )
-       
+
     }
 
     function removeItem(id) {
@@ -63,9 +67,9 @@ export const Carrinho = () => {
 
 
 
-    function buyOrder(order:Pedido) {
+    function buyOrder(order: Pedido) {
 
-        postPedido(order).then((res)=>{
+        postPedido(order).then((res) => {
             console.log(res.data)
             order.listaItemPedido.map((c) => {
                 c.produto.quantidadeEstoque -= c.quantidade
@@ -73,7 +77,8 @@ export const Carrinho = () => {
                 putProdutos(c.produto)
             }
                 ,
-                removeAllProducts())}
+                removeAllProducts())
+        }
         ).catch((error) => {
             console.log(error)
         })
@@ -82,49 +87,45 @@ export const Carrinho = () => {
 
 
     return (
-<View>
-        <FlatList
-          style={styles.container}
-          numColumns={2}
-          data={cart}
-          renderItem={({item}) =>
-          {
-            return(
-              <View  style={styles.cardProduct} >
-                <Image style={styles.productImage} source={{uri:`data:image/png;base64,${item.produto.imagem}`}}></Image>
-                {/* <View style={{backgroundColor:'red', height:30, width:30}}></View> */}
-                <Text
-                  style={styles.productName}
-                >{item.produto.nome}</Text>
-                <Text style={styles.productQuantity}>
-                  Quantidade: {item.quantidade} 
-                </Text>
-                {/* <SelectList
-                boxStyles={{borderRadius:0}}
-                data={Array.from({ length: item.produto.quantidadeEstoque }, (_, i) =>{return {key:i, value:i + 1}})}
-                setSelected={(value)=>setAmount(value, item)}
-                save="value"
-                defaultOption={{ key:0, value:1}}
-                /> */}
-                <Text style={styles.productPrice}>R$ {item.valorBruto.toFixed(2)}</Text>
-                <TouchableOpacity 
-                  activeOpacity={0.7}
-                  style={styles.cartBtn}
-                  onPress={()=>{removeItem(item.produto.id)}}
-                >
-                  <CartButton/>
-                </TouchableOpacity>
-</View>
-            )
-          }}   
-        />     
-        <Text>R${isNaN(fullPrice)?0: fullPrice}</Text>
-        <Button
-        title='Finalizar'
-        onPress={() => { buyOrder(order) }}
-        ></Button>
+        <View>
+            <FlatList
+                style={styles.container}
+                numColumns={1}
+                data={cart}
+                renderItem={({ item }) => {
+                    return (
+                        <View style={{height:500}} >
+                            <Image style={styles.productImage} source={{ uri: `data:image/png;base64,${item.produto.imagem}` }}></Image>
+                            {/* <View style={{backgroundColor:'red', height:30, width:30}}></View> */}
+                            <Text
+                                style={styles.productName}
+                            >{item.produto.nome}</Text>
+                            <AntDesign name="minuscircleo" size={24} color="black" />
+                            <Text style={styles.productQuantity}>
+                                Quantidade: {item.quantidade}
+                            </Text>
+                            
+                            <AntDesign onPress={()=>{setAmount(item)}} name="pluscircleo" size={24} color="black" />
+                    
+                            <Text style={styles.productPrice}>R$ {item.valorBruto.toFixed(2)}</Text>
+                            <TouchableOpacity
+                                activeOpacity={0.7}
+                                style={styles.cartBtn}
+                                onPress={() => { removeItem(item.produto.id) }}
+                            >
+                                <CartButton />
+                            </TouchableOpacity>
+                        </View>
+                    )
+                }}
+            />
+            <Text>R${isNaN(fullPrice) ? 0 : fullPrice}</Text>
+            <Button
+                title='Finalizar'
+                onPress={() => { buyOrder(order) }}
+            ></Button>
         </View>
-      );
+    );
 
-    
+
 }
