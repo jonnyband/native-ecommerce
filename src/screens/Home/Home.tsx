@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Text, View, TextInput, Button, Image, TouchableOpacity } from 'react-native';
 import {styles} from './styles'
 
@@ -7,8 +7,11 @@ import { Produto } from '../../interfaces/Models/Produto';
 import { FlatList } from 'react-native-gesture-handler';
 import { CartButton } from '../../components/CartButton/CartButton';
 import Container, { Toast } from 'toastify-react-native';
+import { Context } from '../../context';
 
 export const Home = props => {
+
+  const { cart, addProduct } = useContext(Context)
 
   const [produtos, setProdutos] = useState<Produto[]>()
 
@@ -19,12 +22,22 @@ export const Home = props => {
        console.log(err)
      })
    }, []);
+
+
+   function add(product:Produto) {
+    let con;
+    cart.map((c)=>{if(c.produto.id === product.id){con=true}})
+    
+    if(con){
+        Toast.error('Já existe!');
+        console.log('Item já está em seu Carrinho!')
+    }else{
+        addProduct(product)
+        console.log('Adicionado ao Carrinho!')
+        Toast.success('Adicionado!');
+    }
+}
   
-
-   const handleSubmit = async () => {
-    Toast.success('Adicionado!');
-  };
-
     return (
       <View>
         <Container
@@ -35,6 +48,7 @@ export const Home = props => {
           width= {168}
           height= {50}
         />
+       
         <FlatList
           style={styles.container}
           numColumns={2}
@@ -48,8 +62,7 @@ export const Home = props => {
                 <Text
                   style={styles.productName}
                   numberOfLines={2}
-                  >{item.nome}</Text>
-                  
+                >{item.nome}</Text>
                 <Text style={styles.productQuantity}>
                   Disponíveis: {item.quantidadeEstoque} 
                 </Text>
@@ -57,15 +70,14 @@ export const Home = props => {
                 <TouchableOpacity 
                   activeOpacity={0.7}
                   style={styles.cartBtn}
-                  onPress={() => handleSubmit()}
+                  onPress={()=>{add(item)}}
                 >
                   <CartButton/>
                 </TouchableOpacity>
               </View>
             )
           }}   
-        />     
-
-      </View>
+        />
+      </View>     
     );
 }
