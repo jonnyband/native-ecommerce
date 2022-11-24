@@ -6,7 +6,7 @@ export interface CartContext{
 
     cart:ItemPedido[],
     addProduct: (produto:Produto) => void;
-    addAmount: (e:number, c:ItemPedido ) => ItemPedido | void;
+    addAmount: (c:ItemPedido ) => ItemPedido | void;
     removeProduct: (id:number) => void;
     removeAllProducts: () => void;
     
