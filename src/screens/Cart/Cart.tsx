@@ -15,6 +15,7 @@ import { RemoveButton } from '../../components/RemoveButton/RemoveButton';
 import { postPedido } from '../../services/PedidoService';
 import { Pedido } from '../../interfaces/Models/Pedido';
 import { ItemPedido } from '../../interfaces/Models/ItemPedido';
+import Container, { Toast } from 'toastify-react-native';
 
 export const Carrinho = () => {
     const { cart, removeProduct, removeAllProducts, addAmount, minusAmount } = useContext(Context)
@@ -60,6 +61,7 @@ export const Carrinho = () => {
 
     function removeItem(id) {
         removeProduct(id)
+        Toast.success('Item removido!');
     }
 
 
@@ -98,6 +100,12 @@ export const Carrinho = () => {
 
     return (
         <View style={styles.container}>
+            <Container 
+                positionValue= '150'
+                duration={1400}
+                position="bottom"
+                width= {186}
+             />
             <FlatList
                 style={styles.flat}
                 numColumns={2}
