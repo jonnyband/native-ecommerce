@@ -9,6 +9,6 @@ export function getPedido() : Promise<AxiosResponse<Pedido[]>> {
     return api.get(url);
 }
 
-export function postPedido(pedido : Pedido) : Promise <AxiosResponse<Pedido>> {
+export function postPedido(pedido : Pedido){
     return api.post(url, pedido);
 }

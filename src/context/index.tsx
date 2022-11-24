@@ -21,7 +21,8 @@ export const CartContent = ({ children } : CartProviderProps) => {
               
         }
         setCart([...cart, a])
-        console.log(cart)
+        cart.map((c)=>{console.log(c.produto.nome+' '+c.quantidade)})
+
     }
 
     
@@ -39,12 +40,12 @@ export const CartContent = ({ children } : CartProviderProps) => {
     function removeProduct(id:number) {
         
         setCart([...cart.filter(c=>c.produto.id!==id)])
-        console.log(cart)
+        cart.map((c)=>{console.log(c.produto.nome+' '+c.quantidade)})
     }
 
     function removeAllProducts() {
         setCart([])
-        console.log(cart)
+      
     }
 
     return (

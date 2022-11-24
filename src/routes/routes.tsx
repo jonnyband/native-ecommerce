@@ -8,6 +8,7 @@ import { Registration } from '../screens/Registration/Registration';
 import { Members } from '../screens/Members/Members';
 import { Home } from '../screens/Home/Home';
 import { CartContent } from '../context';
+import { Carrinho } from '../screens/Cart/Cart';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -34,6 +35,7 @@ export const DrawerComponents = () => {
                 <Drawer.Navigator>
                     <Drawer.Screen name="Home" component={Home} />
                     <Drawer.Screen name="Integrantes" component={Members} />
+                    <Drawer.Screen name="Carrinho" component={Carrinho} />
                 </Drawer.Navigator>
             </NavigationContainer>
         </CartContent>
