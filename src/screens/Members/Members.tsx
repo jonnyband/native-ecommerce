@@ -32,16 +32,16 @@ export const Members = () => {
     github: 'https://github.com/nubiamneves'
   }, {
     name: 'Paulo Henrique',
-    photo: 'https://media-exp1.licdn.com/dms/image/D4E35AQGe5a5JMluILA/profile-framedphoto-shrink_800_800/0/1660939427222?e=1669654800&v=beta&t=hRkWz3ZOeAxrrmLaHlAOogybWjIkwSUct-6ns58fY6A',
+    photo: 'https://avatars.githubusercontent.com/u/111092088?v=4',
     description: "Residente do Serratec",
     linkedin: 'https://www.linkedin.com/in/paulo-henrique-mayworm-85b972181/',
-    github: 'https://www.linkedin.com/in/nubia-martins-7a58a4231/'
+    github: 'https://github.com/PauloMayworm'
   },  
   ]);
 
     return(
         <View style={styles.container}>
-            <Text style={styles.title}>Integrantes</Text>
+           
 
             {listMemebers.map((member) => (
                 <View style={styles.cardMember}>

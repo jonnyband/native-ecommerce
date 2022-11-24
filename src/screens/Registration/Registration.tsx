@@ -3,7 +3,7 @@ import { View, Text, NativeSyntheticEvent, TextInputChangeEventData, TouchableOp
 
 import { CommonInput } from '../../components/Inputs/CommonInput';
 import { SecureInput } from '../../components/Inputs/SecureInput';
-import { ConfirmButton } from '../../components/Buttons/ConfirmButton';
+import { ConfirmButton } from '../../components/ConfirmButton/ConfirmButton';
 
 import { styles } from "./styles"
 
@@ -78,10 +78,10 @@ export const Registration = () => {
                 title={'Criar conta'}
             />
              <View style={styles.boxLogin}>
-                <Text>Ainda não possui uma conta?
+                <Text>Já possui uma conta?
                 </Text>
                     <TouchableOpacity>
-                    <Text style={styles.login}>Criar conta</Text>
+                        <Text style={styles.login}>Entrar</Text>
                     </TouchableOpacity>
             </View>
         </View>

@@ -1,5 +1,3 @@
-import { ButtonProps } from "react-native";
-
-export interface btnProps extends ButtonProps {
+export interface btnProps {
     title: string,
 }

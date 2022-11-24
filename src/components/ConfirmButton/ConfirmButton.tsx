@@ -1,18 +1,17 @@
 import React from "react"
-import { Text, TouchableOpacity } from "react-native"
+import { Text, View } from "react-native"
 
-import { btnProps } from '../../interfaces/Button'
+import { btnProps } from '../../interfaces/Props/Button'
 
 import { styles } from "./style"
 
 export const ConfirmButton = ({title}  : btnProps) => {
 
     return(
-        <TouchableOpacity 
-            activeOpacity={0.7}
+        <View 
             style={styles.button}
         >
             <Text style={styles.text}>{title}</Text>
-        </TouchableOpacity>
+        </View>
     )
 }
