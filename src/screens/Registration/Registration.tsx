@@ -8,7 +8,7 @@ import { ConfirmButton } from '../../components/ConfirmButton/ConfirmButton';
 import { styles } from "./styles"
 
 
-export const Registration = () => {
+export const Registration = props => {
     
  //Variáveis para obtenção dos dados digitados pelo usuário
  const [newEmail, setNewEmail] = useState<string>("");
@@ -80,7 +80,9 @@ export const Registration = () => {
              <View style={styles.boxLogin}>
                 <Text>Já possui uma conta?
                 </Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                    onPress={()=>{props.navigation.navigate('Login')}}
+                    >
                         <Text style={styles.login}>Entrar</Text>
                     </TouchableOpacity>
             </View>

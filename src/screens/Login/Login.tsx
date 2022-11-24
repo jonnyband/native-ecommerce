@@ -79,7 +79,11 @@ export const Login = props => {
         <View style={styles.boxCreateAcc}>
           <Text>Ainda não possui uma conta?
           </Text>
-            <TouchableOpacity>
+            <TouchableOpacity
+
+            onPress={()=>{props.navigation.navigate('Registration')}}
+            
+            >
               <Text style={styles.createAcc}>
                 Criar conta
               </Text>
