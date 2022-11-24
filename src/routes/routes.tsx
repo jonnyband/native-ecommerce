@@ -33,9 +33,9 @@ export const DrawerComponents = () => {
         <CartContent>
             <NavigationContainer independent={true}>
                 <Drawer.Navigator>
-                    <Drawer.Screen name="Home" component={Home} />
-                    <Drawer.Screen name="Integrantes" component={Members} />
+                    <Drawer.Screen name="Início" component={Home} />
                     <Drawer.Screen name="Carrinho" component={Carrinho} />
+                    <Drawer.Screen name="Integrantes" component={Members} />
                 </Drawer.Navigator>
             </NavigationContainer>
         </CartContent>
