@@ -5,6 +5,7 @@ import { CommonInput } from '../../components/Inputs/CommonInput';
 import { SecureInput } from '../../components/Inputs/SecureInput';
 import { ConfirmButton } from '../../components/ConfirmButton/ConfirmButton';
 import { getClienteId, getCliente } from '../../services/ClienteService';
+import { AsyncStorage } from 'react-native';
 import Logo from '../../../assets/logo.png';
 
 import { styles } from './styles'
@@ -27,13 +28,37 @@ export const Login = props => {
     setTypedCpf(value);
   }
   
+
+    
+    const storeData = async () => {
+      try {
+          await AsyncStorage.setItem('@id', id)
+      } catch (e) {
+  
+      }
+  }
+
+  const getData = async () => {
+    try {
+       return await AsyncStorage.getItem('@id')
+        
+    } catch (e) {
+        // error reading value
+    }
+}
+
   function Signin () {
 
     let cpf:string
     
-    getClienteId(id).then((res) => cpf = res.data.cpf).catch((err) => {
+    getClienteId(id).then((res) => {cpf = res.data.cpf;
+      storeData
+      console.log(getData)
+   })
+    .catch((err) => {
       console.log(err)
       }).finally(() => {
+       
         if(cpf == typedCpf){
           return (
             props.navigation.navigate('Home')

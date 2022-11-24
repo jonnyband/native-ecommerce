@@ -2,7 +2,7 @@ import { AxiosResponse } from "axios";
 import { Endereco } from "../interfaces/Models/Endereco";
 import { api } from "./api";
 
-const url:string = 'endereco'
+const url:string = 'enderecos'
 
 
 export function getEndereco() : Promise<AxiosResponse<Endereco[]>> {

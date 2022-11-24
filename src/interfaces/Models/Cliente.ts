@@ -2,7 +2,7 @@ import { Endereco } from "./Endereco"
 
 
 export interface Cliente{
-    id:number,
+    id?:number,
     email?:string,
     nomeUsuario?:string,
     nomeCompleto?:string,
