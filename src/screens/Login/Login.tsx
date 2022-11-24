@@ -73,20 +73,17 @@ export const Login = props => {
             title='Entrar'
           />
         </TouchableOpacity>
-        {/* <Button
-          title='Entrar'
-          onPress={(e)=>props.navigation.navigate('Home')}
-        /> */}
+      
         <View style={styles.boxCreateAcc}>
           <Text>Ainda não possui uma conta?
           </Text>
             <TouchableOpacity>
-              <Text style={styles.createAcc}
-              //onPress={(e)=>props.navigation.navigate('Registro')}
-              >Criar conta</Text>
+              <Text style={styles.createAcc}>
+                Criar conta
+              </Text>
             </TouchableOpacity>
         </View>
 
-        </View>
+      </View>
     );
 }
