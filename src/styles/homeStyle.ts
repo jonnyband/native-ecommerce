@@ -7,7 +7,12 @@ export const styles = StyleSheet.create({
    
         flexDirection:'column',
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        alignContent:'center',
+        textAlign:'center',
+        margin:20,
+        height:100,
+        backgroundColor:'grey'
     },
 
     homeHeader:{
