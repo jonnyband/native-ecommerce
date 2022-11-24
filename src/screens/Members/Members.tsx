@@ -22,7 +22,7 @@ export const Members = () => {
     name: 'Bruna Cabral',
     photo: 'https://avatars.githubusercontent.com/u/97639162?v=4',
     description: "Residente do Serratec",
-    linkedin: 'https://www.linkedin.com/feed/',
+    linkedin: 'https://www.linkedin.com/in/bruna-cabral-964aa2246/',
     github: 'https://github.com/brunakbral'
   }, {
     name: 'Nubia Martins',
